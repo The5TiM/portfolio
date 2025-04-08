@@ -1,5 +1,6 @@
 export const infos = {
     githubId: 144624787,
+    email: 'mailto:juwan.jouma@gmail.com',
     skills: [
         'Software Developer',
         'Game Developer',
@@ -9,5 +10,5 @@ export const infos = {
         'Fullstack Developer',
         'API Developer',
         '3D Modeling',
-    ]
+    ],
 };

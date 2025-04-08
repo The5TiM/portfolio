@@ -1,7 +1,7 @@
 export const sizes = {
     navbarHeight: 'h-20',
     pageHeight: 'h-[calc(100vh-80px)]',
-    textXxs: 'text-xxs md:text-xs lg:text-xl',
+    textXxs: 'text-xs md:text-xs lg:text-xl',
     textXs: 'text-xs md:text-sm lg:text-2xl',
     textSm: 'text-sm md:text-base lg:text-3xl',
     textMd: 'text-md md:text-lg lg:text-4xl',

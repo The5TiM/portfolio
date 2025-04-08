@@ -61,8 +61,8 @@ function App() {
   }, [])
 
   return (
-    <main className={`h-screen ${themeStyles.main} ${themeStyles.text.primary}`}>
-      <div className="container mx-auto">
+    <main className={`h-full ${themeStyles.main} ${themeStyles.text.primary}`}>
+      <div className="container mx-auto px-8">
         <Navbar username={githubData?.login || ''} />
         <Routes>
           <Route path="/" element={<Home githubData={githubData} loading={loading} />} />

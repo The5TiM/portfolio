@@ -1,16 +1,11 @@
 @import "tailwindcss";
 
-#page {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+body {
+    overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-} 
+.navbar {
+    @apply bg-zinc-900/10;
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+}

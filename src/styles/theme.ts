@@ -8,12 +8,19 @@ export const themeStyles = {
         primary: {
             base: 'transition-all duration-200 text-zinc-700 hover:text-white hover:[text-shadow:0_0_10px_rgba(59,130,246,0.5)]',
             active: 'text-blue-500 font-bold',
-            activeUnterline: '!text-white border-b-4 border-blue-500',
+            activeUnderline: '!text-white border-b-4 border-blue-500',
         },
         logo: {
             base: 'transition-all duration-200 hover:text-blue-500 hover:[text-shadow:0_0_10px_rgba(59,130,246,0.5)]',
             active: 'text-blue-500 font-bold',
         },
+    },
+    skeleton: {
+        primary: 'bg-zinc-700',
+        secondary: 'bg-zinc-700/50',
+        tertiary: 'bg-zinc-600',
+
+
     },
     accent: {
         primary: 'bg-blue-600',
@@ -21,8 +28,8 @@ export const themeStyles = {
         hover: 'hover:bg-blue-700',
     },
     button: {
-        primary: 'transition-all duration-200 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg shadow-blue-500/50 hover:shadow-xl flex items-center justify-center',
-        secondary: 'transition-all duration-200 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 p-2 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-xl flex items-center justify-center',
+        primary: 'transition-all duration-200 bg-blue-600 hover:bg-blue-700 text-white pt-2 pb-2 ps-4 pe-4 rounded-full shadow-lg shadow-blue-500/50 hover:shadow-xl flex items-center justify-center',
+        secondary: 'transition-all duration-200 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 pt-2 pb-2 ps-4 pe-4 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-xl flex items-center justify-center',
         outline: 'transition-all duration-200 border-2 border-blue-500 text-blue-500 hover:bg-blue-500/10',
     },
     border: 'transition-all duration-200 border-5 border-blue-500',
