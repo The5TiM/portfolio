@@ -3,9 +3,3 @@
 body {
     overflow-x: hidden;
 }
-
-.navbar {
-    @apply bg-zinc-900/10;
-    backdrop-filter: blur( 6px );
-    -webkit-backdrop-filter: blur( 6px );
-}

@@ -4,11 +4,12 @@ export const themeStyles = {
         primary: 'text-white',
         secondary: 'text-blue-500',
     },
-    navbarBtn: {
+    navbar: {
         primary: {
             base: 'transition-all duration-200 text-zinc-700 hover:text-white hover:[text-shadow:0_0_10px_rgba(59,130,246,0.5)]',
             active: 'text-blue-500 font-bold',
             activeUnderline: '!text-white border-b-4 border-blue-500',
+            backgroundColor: 'bg-zinc-900/10 backdrop-blur-sm',
         },
         logo: {
             base: 'transition-all duration-200 hover:text-blue-500 hover:[text-shadow:0_0_10px_rgba(59,130,246,0.5)]',
@@ -19,8 +20,6 @@ export const themeStyles = {
         primary: 'bg-zinc-700',
         secondary: 'bg-zinc-700/50',
         tertiary: 'bg-zinc-600',
-
-
     },
     accent: {
         primary: 'bg-blue-600',

@@ -8,6 +8,10 @@ interface NavbarProps {
   username: string;
 }
 
+const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 const Navbar: React.FC<NavbarProps> = ({ username }) => {
     const location = useLocation();
     
@@ -19,21 +23,30 @@ const Navbar: React.FC<NavbarProps> = ({ username }) => {
     if (!username) return <SkeletonLoader type="navbar" />;
 
     return (
-        <div className={`flex ${sizes.navbarHeight} ${themeStyles.main} navbar justify-between items-center text-2xl sticky top-0 z-40`}>
+        <div className={`flex ${sizes.navbarHeight} ${themeStyles.navbar.primary.backgroundColor} navbar justify-between items-center text-2xl sticky top-0 z-40`}>
             <Link 
                 to="/" 
-                className={`${themeStyles.navbarBtn.logo.base} ${sizes.textSm}`}>
+                onClick={scrollToTop}
+                className={`${themeStyles.navbar.logo.base} ${sizes.textSm}`}>
                     <span className="font-bold">{username}</span>
                     <span className="font-extralight"> / portfolio</span>
             </Link> 
             <div className="flex gap-6">
-                <Link to="/" className={`${themeStyles.navbarBtn.primary.base} ${sizes.textSm} ${isActive('/') ? themeStyles.navbarBtn.primary.activeUnderline : ''}`}>
+                <Link 
+                    to="/" 
+                    onClick={scrollToTop}
+                    className={`${themeStyles.navbar.primary.base} ${sizes.textSm} ${isActive('/') ? themeStyles.navbar.primary.activeUnderline : ''}`}>
                     Home
                 </Link>
-                <Link to="/projects" className={`${themeStyles.navbarBtn.primary.base} ${sizes.textSm} ${isActive('/projects') ? themeStyles.navbarBtn.primary.activeUnderline : ''}`}>
+                <Link 
+                    to="/projects"
+                    onClick={scrollToTop}
+                    className={`${themeStyles.navbar.primary.base} ${sizes.textSm} ${isActive('/projects') ? themeStyles.navbar.primary.activeUnderline : ''}`}>
                     Projects
                 </Link>
-                <Link to="/contact" className={`${themeStyles.navbarBtn.primary.base} ${sizes.textSm} ${isActive('/contact') ? themeStyles.navbarBtn.primary.activeUnderline : ''}`}>
+                <Link to="/contact"
+                    onClick={scrollToTop}
+                    className={`${themeStyles.navbar.primary.base} ${sizes.textSm} ${isActive('/contact') ? themeStyles.navbar.primary.activeUnderline : ''}`}>
                     Contact
                 </Link>
             </div>
