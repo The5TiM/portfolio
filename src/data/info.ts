@@ -3,7 +3,7 @@ export const infos = {
     skills: [
         'Software Developer',
         'Game Developer',
-        'Responsive Web Design',
+        'Responsive Web Designer',
         'Frontend Developer',
         'Backend Developer',
         'Fullstack Developer',
