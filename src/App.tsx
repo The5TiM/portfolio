@@ -1,36 +1,76 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import BlurText from './components/BlurText'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import Navbar from './components/Navbar'
+import { themeStyles } from './styles/theme'
+import { useEffect, useState } from 'react'
+import Home from './pages/Home'
+import { infos } from './data/info'
+
+interface GithubData {
+  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  followers_url: string;
+  following_url: string;
+  gists_url: string;
+  starred_url: string;
+  subscriptions_url: string;
+  organizations_url: string;
+  repos_url: string;
+  events_url: string;
+  received_events_url: string;
+  type: string;
+  site_admin: boolean;
+  name: string;
+  company: string;
+  blog: string;
+  location: string;
+  email: string;
+  hireable: boolean;
+  bio: string;
+  twitter_username: string;
+  public_repos: number;
+  public_gists: number;
+  followers: number;
+  following: number;
+  created_at: string;
+  updated_at: string;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [githubData, setGithubData] = useState<GithubData | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchGithubData = async () => {
+      try {
+        const response = await fetch(`https://api.github.com/user/${infos.githubId}`)
+        const data = await response.json()
+        setGithubData(data)
+        setLoading(false)
+      } catch (err: any) {
+        console.error(err.message)
+      }
+    }
+
+    fetchGithubData()
+  }, [])
 
   return (
-    <>
-      <div>
-        <BlurText text="Hello World" />
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main className={`h-screen ${themeStyles.main} ${themeStyles.text.primary}`}>
+      <div className="container mx-auto">
+        <Navbar username={githubData?.login || ''} />
+        <Routes>
+          <Route path="/" element={<Home githubData={githubData} loading={loading} />} />
+          <Route path="/projects" element={<div>Projects</div>} />
+          <Route path="/contact" element={<div>Contact</div>} />
+        </Routes> 
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </main>
   )
 }
 
