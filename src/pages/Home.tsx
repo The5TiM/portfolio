@@ -7,46 +7,10 @@ import { infos } from "../data/info";
 import FadeContent from "../components/FadeContent";
 import SkeletonLoader from "../components/SkeletonLoader";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight,faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ScrollReveal from "../components/ScrollReveal";
 import ScrollFloat from "../components/ScrollFloat";
 import InfoCard from "../components/InfoCard";
-
-interface GithubData {
-    login: string;
-    id: number;
-    node_id: string;
-    avatar_url: string;
-    gravatar_id: string;
-    url: string;
-    html_url: string;
-    followers_url: string;
-    following_url: string;
-    gists_url: string;
-    starred_url: string;
-    subscriptions_url: string;
-    organizations_url: string;
-    repos_url: string;
-    events_url: string;
-    received_events_url: string;
-    type: string;
-    site_admin: boolean;
-    name: string;
-    company: string;
-    blog: string;
-    location: string;
-    email: string;
-    hireable: boolean;
-    bio: string;
-    twitter_username: string;
-    public_repos: number;
-    public_gists: number;
-    followers: number;
-    following: number;
-    created_at: string;
-    updated_at: string;
-  }
+import { GithubData } from "../shared/github";
 
 interface HomeProps {
   githubData: GithubData | null;
@@ -79,17 +43,17 @@ class Home extends React.Component<HomeProps> {
                                 text={githubData?.name} />
                             <TypingText 
                                 className={`${sizes.textMd} ${themeStyles.text.secondary} ${themeStyles.textShadow} text-center md:text-start font-bold`} 
-                                text={infos.skills} 
+                                text={infos.expertise} 
                                 delay={2000} 
                                 typingSpeed={200}/> 
 
                             <div className={`${sizes.textSm} flex justify-center md:justify-start gap-4 mt-12`}>
                                 <Link to="/projects" className={`flex gap-2 ${themeStyles.button.primary} ${sizes.textXxs} `}>
-                                    <FontAwesomeIcon icon={faArrowRight} /> View Projects
+                                    <i className="fa-solid fa-arrow-right"></i> Projects
                                 </Link>
                                 {githubData?.hireable && 
                                     <a href={infos.email} className={`flex gap-2 ${themeStyles.button.secondary} ${sizes.textXxs}`}>
-                                        <FontAwesomeIcon icon={faEnvelope} /> Hire Me
+                                        <i className="fa-solid fa-envelope"></i> Hire Me
                                     </a>
                                 }
                             </div>
@@ -134,7 +98,35 @@ class Home extends React.Component<HomeProps> {
                 </div>
             </div>
             <div className={`${sizes.pageHeight} flex items-center justify-center`}>
-                <InfoCard />
+                <div className="scale-200">
+                    <ScrollFloat
+                        animationDuration={1}
+                        ease='back.inOut(2)'
+                        scrollStart='center bottom+=50%'
+                        scrollEnd='bottom bottom-=40%'
+                        stagger={0.03}
+                        textClassName="font-bold text-9xl"
+                    >
+                        Skills
+                    </ScrollFloat>
+                </div>
+            </div>
+            <div className={`${sizes.pageHeight} flex items-center justify-center p-20`}>
+                <InfoCard skills={infos.skills} />
+            </div>
+            <div className={`${sizes.pageHeight} flex items-center justify-center`}>
+                <div className="scale-200">
+                    <ScrollFloat
+                        animationDuration={1}
+                        ease='back.inOut(2)'
+                        scrollStart='center bottom+=50%'
+                        scrollEnd='bottom bottom-=40%'
+                        stagger={0.03}
+                        textClassName="font-bold text-9xl"
+                    >
+                        Certificates
+                    </ScrollFloat>
+                </div>
             </div>
         </>
     );

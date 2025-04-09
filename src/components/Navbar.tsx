@@ -23,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ username }) => {
     if (!username) return <SkeletonLoader type="navbar" />;
 
     return (
-        <div className={`${sizes.navbarHeight} ${themeStyles.navbar.primary.backgroundColor} flex justify-between items-center text-2xl sticky top-0 z-40`}>
+        <div className={`${sizes.navbarHeight} ${themeStyles.navbar.primary.backgroundColor} flex justify-between items-center text-2xl sticky top-0 z-40 px-8`}>
             <Link 
                 to="/" 
                 onClick={scrollToTop}

@@ -5,41 +5,7 @@ import { themeStyles } from './styles/theme'
 import { useEffect, useState } from 'react'
 import Home from './pages/Home'
 import { infos } from './data/info'
-
-interface GithubData {
-  login: string;
-  id: number;
-  node_id: string;
-  avatar_url: string;
-  gravatar_id: string;
-  url: string;
-  html_url: string;
-  followers_url: string;
-  following_url: string;
-  gists_url: string;
-  starred_url: string;
-  subscriptions_url: string;
-  organizations_url: string;
-  repos_url: string;
-  events_url: string;
-  received_events_url: string;
-  type: string;
-  site_admin: boolean;
-  name: string;
-  company: string;
-  blog: string;
-  location: string;
-  email: string;
-  hireable: boolean;
-  bio: string;
-  twitter_username: string;
-  public_repos: number;
-  public_gists: number;
-  followers: number;
-  following: number;
-  created_at: string;
-  updated_at: string;
-}
+import { GithubData } from './shared/github'
 
 function App() {
   const [githubData, setGithubData] = useState<GithubData | null>(null)
@@ -62,7 +28,7 @@ function App() {
 
   return (
     <main className={`h-full ${themeStyles.main} ${themeStyles.text.primary}`}>
-      <div className="container mx-auto px-8">
+      <div className="container mx-auto">
         <Navbar username={githubData?.login || ''} />
         <Routes>
           <Route path="/" element={<Home githubData={githubData} loading={loading} />} />

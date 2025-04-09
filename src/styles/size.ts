@@ -8,6 +8,7 @@ export const sizes = {
     textLg: 'text-lg md:text-xl lg:text-5xl',
     textXl: 'text-xl md:text-2xl lg:text-6xl',
     text2Xl: 'text-2xl md:text-3xl lg:text-7xl',
+    only2XL: 'text-2xl',
     text3Xl: 'text-3xl md:text-4xl lg:text-8xl',
     text4Xl: 'text-4xl md:text-5xl lg:text-9xl',
 }

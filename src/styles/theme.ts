@@ -26,7 +26,9 @@ export const themeStyles = {
         secondary: 'transition-all duration-200 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 pt-2 pb-2 ps-4 pe-4 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-xl flex items-center justify-center',
         outline: 'transition-all duration-200 border-2 border-blue-500 text-blue-500 hover:bg-blue-500/10',
     },
+    icon: 'transition-all duration-200 p-4 shadow-lg hover:shadow-xl flex items-center justify-center rounded-3xl flex gap-4 border-2 border-white/20',
     border: 'transition-all duration-200 border-5 border-blue-500',
     hover: 'hover:[box-shadow:0_0_20px_rgba(59,130,246,0.5)]',
     textShadow: '[text-shadow:0_0_10px_rgba(59,130,246,0.5)]',
+    card: 'border-2 border-white/10 p-6 rounded-4xl shadow-white/20 shadow-xl bg-zinc-600/50'
 }
