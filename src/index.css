@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* * {
+    border: 1px solid red; 
+} */
+
 body {
     overflow-x: hidden;
 }

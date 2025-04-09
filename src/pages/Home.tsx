@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight,faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ScrollReveal from "../components/ScrollReveal";
-// import { faGithub } from '@fortawesome/free-brands-svg-icons';
-
+import ScrollFloat from "../components/ScrollFloat";
+import InfoCard from "../components/InfoCard";
 
 interface GithubData {
     login: string;
@@ -70,7 +70,7 @@ class Home extends React.Component<HomeProps> {
     return (
         <>
             <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-                <div className={`flex items-center justify-center ${sizes.pageHeight}`}>
+                <div className={`${sizes.pageHeight} flex items-center justify-center`}>
                     <div className="flex items-center flex-col-reverse md:flex-row w-full max-w-5xl gap-6">
                         <div className="flex flex-col gap-4 p-4 flex-1">
                             <p className={`${sizes.textSm} text-center md:text-start font-bold`}>Hi, I'm</p>
@@ -92,25 +92,49 @@ class Home extends React.Component<HomeProps> {
                                         <FontAwesomeIcon icon={faEnvelope} /> Hire Me
                                     </a>
                                 }
-                                {/* <a href={githubData?.repos_url} className={`flex gap-2 ${themeStyles.button.secondary} ${sizes.textXxs}`}>
-                                    <FontAwesomeIcon icon={faGithub} /> Public Repos: {githubData?.public_repos}
-                                </a> */}
                             </div>
                         </div>
                         <div className="flex-1 flex justify-center">
-                        <img
-                            src={githubData?.avatar_url}
-                            alt={`${githubData?.name}'s avatar`}
-                            className={`w-48 md:w-72 lg:w-96 rounded-full ${themeStyles.border} ${themeStyles.hover}`}
-                        />
+                            <img
+                                src={githubData?.avatar_url}
+                                alt={`${githubData?.name}'s avatar`}
+                                className={`w-48 md:w-72 lg:w-96 rounded-full ${themeStyles.border} ${themeStyles.hover}`}
+                            />
                         </div>
                     </div>
                 </div>
             </FadeContent>
-            <div className={`flex items-center justify-center ${sizes.pageHeight}`}>
-                <div className="w-xs md:w-xl">
-                    <ScrollReveal baseOpacity={0} enableBlur={true} blurStrength={15} >{githubData?.bio}</ScrollReveal>
+            <div className={`${sizes.pageHeight} flex items-center justify-center`}>
+                <div className="scale-200">
+                    <ScrollFloat
+                        animationDuration={1}
+                        ease='back.inOut(2)'
+                        scrollStart='center bottom+=50%'
+                        scrollEnd='bottom bottom-=40%'
+                        stagger={0.03}
+                        textClassName="font-bold text-9xl"
+                    >
+                        About Me
+                    </ScrollFloat>
                 </div>
+            </div>
+            <div className={`${sizes.pageHeight} flex items-center justify-center`}>
+                <div className="w-xs md:w-xl lg:w-2xl">
+                    <ScrollReveal 
+                        baseOpacity={0} 
+                        enableBlur={true} 
+                        blurStrength={15} 
+                        textClassName="text-justify"
+                    >
+                        {`${githubData?.bio || ''} 
+                            ${githubData?.location ? `Currently living in ${githubData?.location}.` : ''} 
+                            ${githubData?.company? `Working at ${githubData?.company}.` : ''}`}
+
+                    </ScrollReveal>
+                </div>
+            </div>
+            <div className={`${sizes.pageHeight} flex items-center justify-center`}>
+                <InfoCard />
             </div>
         </>
     );

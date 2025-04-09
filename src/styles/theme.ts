@@ -21,11 +21,6 @@ export const themeStyles = {
         secondary: 'bg-zinc-700/50',
         tertiary: 'bg-zinc-600',
     },
-    accent: {
-        primary: 'bg-blue-600',
-        secondary: 'bg-blue-500',
-        hover: 'hover:bg-blue-700',
-    },
     button: {
         primary: 'transition-all duration-200 bg-blue-600 hover:bg-blue-700 text-white pt-2 pb-2 ps-4 pe-4 rounded-full shadow-lg shadow-blue-500/50 hover:shadow-xl flex items-center justify-center',
         secondary: 'transition-all duration-200 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 pt-2 pb-2 ps-4 pe-4 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-xl flex items-center justify-center',

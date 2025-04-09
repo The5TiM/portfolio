@@ -52,62 +52,61 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         ? scrollContainerRef.current
         : window;
 
-    gsap.fromTo(
-      el,
-      { transformOrigin: "0% 50%", rotate: baseRotation },
-      {
-        ease: "none",
-        rotate: 0,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: "top bottom",
-          end: rotationEnd,
-          scrub: true,
-        },
-      }
-    );
+    // Store all ScrollTrigger instances created by this component
+    const triggers: ScrollTrigger[] = [];
+
+    // Create rotation animation
+    const rotationTrigger = ScrollTrigger.create({
+      trigger: el,
+      scroller,
+      start: "top bottom",
+      end: rotationEnd,
+      scrub: true,
+      animation: gsap.fromTo(
+        el,
+        { transformOrigin: "0% 50%", rotate: baseRotation },
+        { ease: "none", rotate: 0 }
+      ),
+    });
+    triggers.push(rotationTrigger);
 
     const wordElements = el.querySelectorAll<HTMLElement>(".word");
 
-    gsap.fromTo(
-      wordElements,
-      { opacity: baseOpacity, willChange: "opacity" },
-      {
-        ease: "none",
-        opacity: 1,
-        stagger: 0.05,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: "top bottom-=20%",
-          end: wordAnimationEnd,
-          scrub: true,
-        },
-      }
-    );
-
-    if (enableBlur) {
-      gsap.fromTo(
+    // Create opacity animation
+    const opacityTrigger = ScrollTrigger.create({
+      trigger: el,
+      scroller,
+      start: "top bottom-=20%",
+      end: wordAnimationEnd,
+      scrub: true,
+      animation: gsap.fromTo(
         wordElements,
-        { filter: `blur(${blurStrength}px)` },
-        {
-          ease: "none",
-          filter: "blur(0px)",
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: el,
-            scroller,
-            start: "top bottom-=20%",
-            end: wordAnimationEnd,
-            scrub: true,
-          },
-        }
-      );
+        { opacity: baseOpacity, willChange: "opacity" },
+        { ease: "none", opacity: 1, stagger: 0.05 }
+      ),
+    });
+    triggers.push(opacityTrigger);
+
+    // Create blur animation if enabled
+    if (enableBlur) {
+      const blurTrigger = ScrollTrigger.create({
+        trigger: el,
+        scroller,
+        start: "top bottom-=20%",
+        end: wordAnimationEnd,
+        scrub: true,
+        animation: gsap.fromTo(
+          wordElements,
+          { filter: `blur(${blurStrength}px)` },
+          { ease: "none", filter: "blur(0px)", stagger: 0.05 }
+        ),
+      });
+      triggers.push(blurTrigger);
     }
 
+    // Only kill the ScrollTrigger instances created by this component
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      triggers.forEach(trigger => trigger.kill());
     };
   }, [
     scrollContainerRef,
