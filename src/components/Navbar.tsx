@@ -23,34 +23,38 @@ const Navbar: React.FC<NavbarProps> = ({ username }) => {
     if (!username) return <SkeletonLoader type="navbar" />;
 
     return (
-        <div className={`${sizes.navbarHeight} ${themeStyles.navbar.primary.backgroundColor} flex justify-between items-center text-2xl sticky top-0 z-40 px-8`}>
-            <Link 
-                to="/" 
-                onClick={scrollToTop}
-                className={`${themeStyles.navbar.logo.base} ${sizes.textSm}`}>
-                    <span className="font-bold">{username}</span>
-                    <span className="font-extralight"> / portfolio</span>
-            </Link> 
-            <div className="flex gap-6">
-                <Link 
-                    to="/" 
-                    onClick={scrollToTop}
-                    className={`${themeStyles.navbar.primary.base} ${sizes.textSm} ${isActive('/') ? themeStyles.navbar.primary.activeUnderline : ''}`}>
-                    Home
-                </Link>
-                <Link 
-                    to="/projects"
-                    onClick={scrollToTop}
-                    className={`${themeStyles.navbar.primary.base} ${sizes.textSm} ${isActive('/projects') ? themeStyles.navbar.primary.activeUnderline : ''}`}>
-                    Projects
-                </Link>
-                <Link to="/contact"
-                    onClick={scrollToTop}
-                    className={`${themeStyles.navbar.primary.base} ${sizes.textSm} ${isActive('/contact') ? themeStyles.navbar.primary.activeUnderline : ''}`}>
-                    Contact
-                </Link>
+        <>
+            <div className={`${sizes.navbarHeight} ${themeStyles.navbar.primary.backgroundColor} sticky top-0 z-40`}>
+                <nav className={`${sizes.navbarHeight} container mx-auto flex justify-between items-center text-2xl z-40 px-8`}>
+                    <Link 
+                        to="/" 
+                        onClick={scrollToTop}
+                        className={`${themeStyles.navbar.logo.base} ${sizes.textSm}`}>
+                            <span className="font-bold">{username}</span>
+                            <span className="font-extralight"> / portfolio</span>
+                    </Link> 
+                    <div className="flex gap-6">
+                        <Link 
+                            to="/" 
+                            onClick={scrollToTop}
+                            className={`${themeStyles.navbar.primary.base} ${sizes.textSm} ${isActive('/') ? themeStyles.navbar.primary.activeUnderline : ''}`}>
+                            Home
+                        </Link>
+                        <Link 
+                            to="/projects"
+                            onClick={scrollToTop}
+                            className={`${themeStyles.navbar.primary.base} ${sizes.textSm} ${isActive('/projects') ? themeStyles.navbar.primary.activeUnderline : ''}`}>
+                            Projects
+                        </Link>
+                        <Link to="/contact"
+                            onClick={scrollToTop}
+                            className={`${themeStyles.navbar.primary.base} ${sizes.textSm} ${isActive('/contact') ? themeStyles.navbar.primary.activeUnderline : ''}`}>
+                            Contact
+                        </Link>
+                    </div>
+                </nav>
             </div>
-        </div>
+        </>
     );
 }
 

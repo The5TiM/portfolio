@@ -1,5 +1,6 @@
 export const sizes = {
     navbarHeight: 'h-20',
+    footerHeight: 'h-full',
     pageHeight: 'h-[calc(100vh-80px)] min-h-fit',
     textXxs: 'text-xs md:text-xs lg:text-xl',
     textXs: 'text-xs md:text-sm lg:text-2xl',

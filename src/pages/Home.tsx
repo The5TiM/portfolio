@@ -9,8 +9,10 @@ import SkeletonLoader from "../components/SkeletonLoader";
 import { Link } from "react-router-dom";
 import ScrollReveal from "../components/ScrollReveal";
 import ScrollFloat from "../components/ScrollFloat";
-import InfoCard from "../components/InfoCard";
+import SkillsCard from "../components/SkillsCard";
 import { GithubData } from "../shared/github";
+import ScrollVelocity from "../components/ScrollVelocity";
+import CertificateCard from "../components/CertificateCard";
 
 interface HomeProps {
   githubData: GithubData | null;
@@ -34,7 +36,7 @@ class Home extends React.Component<HomeProps> {
     return (
         <>
             <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-                <div className={`${sizes.pageHeight} flex items-center justify-center`}>
+                <div className={`${sizes.pageHeight} flex flex-col items-center justify-center relative`}>
                     <div className="flex items-center flex-col-reverse md:flex-row w-full max-w-5xl gap-6">
                         <div className="flex flex-col gap-4 p-4 flex-1">
                             <p className={`${sizes.textSm} text-center md:text-start font-bold`}>Hi, I'm</p>
@@ -111,8 +113,14 @@ class Home extends React.Component<HomeProps> {
                     </ScrollFloat>
                 </div>
             </div>
-            <div className={`${sizes.pageHeight} flex items-center justify-center p-20`}>
-                <InfoCard skills={infos.skills} />
+            <div className={`${sizes.pageHeight} flex items-center justify-center`}>
+                <ScrollVelocity
+                    texts={infos.knowledge} 
+                    velocity={100} 
+                />
+            </div>
+            <div className={`${sizes.pageHeight} flex items-center justify-center p-4 md:p-8 lg:p-20`}>
+                <SkillsCard skills={infos.skills} />
             </div>
             <div className={`${sizes.pageHeight} flex items-center justify-center`}>
                 <div className="scale-200">
@@ -127,6 +135,9 @@ class Home extends React.Component<HomeProps> {
                         Certificates
                     </ScrollFloat>
                 </div>
+            </div>
+            <div className={`${sizes.pageHeight} flex items-center justify-center`}>
+                <CertificateCard certificates={infos.certifications || []} />
             </div>
         </>
     );

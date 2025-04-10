@@ -44,7 +44,7 @@ const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({ type = 'profile' }) => 
   
   if (type === 'navbar') {
     return (
-      <div className={`flex ${sizes.navbarHeight} ${themeStyles.main} justify-between items-center text-2xl sticky top-0 z-40`}>
+      <div className={`flex ${sizes.navbarHeight} ${themeStyles.main} container mx-auto justify-between items-center text-2xl sticky top-0 z-40`}>
         <div className="animate-pulse">
             {/* Logo */}
             <div className="flex items-center gap-2">

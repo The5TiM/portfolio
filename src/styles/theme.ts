@@ -16,6 +16,11 @@ export const themeStyles = {
             active: 'text-blue-500 font-bold',
         },
     },
+    footer: {
+        primary: 'font-bold text-xl text-white hover:text-blue-500 transition-colors duration-300',
+        secondary: 'text-zinc-400 hover:text-white transition-colors duration-300', 
+        borderTop: 'border-t border-zinc-800',
+    },
     skeleton: {
         primary: 'bg-zinc-700',
         secondary: 'bg-zinc-700/50',
@@ -30,5 +35,5 @@ export const themeStyles = {
     border: 'transition-all duration-200 border-5 border-blue-500',
     hover: 'hover:[box-shadow:0_0_20px_rgba(59,130,246,0.5)]',
     textShadow: '[text-shadow:0_0_10px_rgba(59,130,246,0.5)]',
-    card: 'border-2 border-white/10 p-6 rounded-4xl shadow-white/20 shadow-xl bg-zinc-600/50'
+    card: 'border-2 border-white/10 p-6 rounded-4xl shadow-white/20 shadow-xl bg-zinc-600/50',
 }
