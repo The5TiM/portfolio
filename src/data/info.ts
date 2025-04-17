@@ -8,7 +8,7 @@ export enum SkillCategory {
 
 export const infos = {
     githubId: 144624787,
-    email: 'mailto:juwan.jouma@gmail.com',
+    email: 'juwan.jouma@gmail.com',
     expertise: [
         'Software Developer',
         'Game Developer',
@@ -37,6 +37,12 @@ export const infos = {
             url: 'https://www.linkedin.com/in/juwan-jouma-2074b3305/',
             icon: 'fa-brands fa-linkedin-in',
             color: 'text-zinc-400 hover:text-blue-500 hover:scale-110 transition-all duration-300'
+        },
+        {
+            name: 'CodePen',
+            url: 'https://codepen.io/The5TiM',
+            icon: 'fa-brands fa-codepen',
+            color: 'text-zinc-400 hover:text-purple-500 hover:scale-110 transition-all duration-300',
         },
         {
             name: 'Email',
@@ -76,9 +82,15 @@ export const infos = {
                 },
                 {
                     icon: 'devicon-csharp-plain',
-                    text: 'C Sharp',
+                    text: 'C#',
                     className: 'bg-purple-600 hover:bg-purple-700 shadow-purple-500/50 hover:shadow-xl text-purple-300',
                     level: 5
+                },
+                {
+                   icon: 'devicon-cplusplus-plain',
+                   text: 'C++',
+                   className: 'bg-red-600 hover:bg-red-700 shadow-red-500/50 hover:shadow-xl text-red-300',
+                   level: 3
                 },
                 {
                     icon: 'devicon-php-plain',
@@ -354,11 +366,47 @@ export const infos = {
             link: 'https://www.freecodecamp.org/certification/STiM/front-end-development-libraries', 
             downloadLink: '',
         },
+        {
+            icon: 'fa-brands fa-free-code-camp',
+            title: 'Foundational C# with Microsoft',
+            institution: 'FreeCodeCamp & Microsoft',
+            date: 'April 2025',
+            className: 'bg-purple-900 hover:bg-purple-800 shadow-purple-700/50 hover:shadow-xl text-purple-400',
+            link: 'https://www.freecodecamp.org/certification/STiM/foundational-c-sharp-with-microsoft',
+            downloadLink: '',
+        },
+        {
+            icon: 'mdi mdi-school',
+            title: 'C++ Intermediate',
+            institution: 'Sololearn',
+            date: 'April 2025',
+            className: 'bg-red-900 hover:bg-red-800 shadow-red-700/50 hover:shadow-xl text-red-400',
+            link: 'https://www.sololearn.com/certificates/CC-BJRR5ZR7',
+            downloadLink: '',
+        },
+        {
+            icon: 'icon-ibm',
+            title: 'Artificial Intelligence Fundamentals',
+            institution: 'IBM',
+            date: 'April 2025',
+            className: 'bg-slate-800 hover:bg-slate-700 shadow-slate-600/50 hover:shadow-xl text-slate-400',
+            link: '',
+            downloadLink: '/certificates/artificial-intelligence-fundamentals.pdf',
+        },
+        {
+            icon: 'devicon-unrealengine-original',
+            title: 'Unreal Engine For Beginners',
+            institution: 'Unreal University',
+            date: 'April 2025',
+            className: 'bg-gray-600 hover:bg-gray-700 shadow-gray-500/50 hover:shadow-xl text-gray-300',
+            link: '',
+            downloadLink: '/certificates/unreal-engine-for-beginners.pdf',
+        }
     ],
     projectCategories: {
         softwareDevelopment: {
             title: 'Software Development',
-            icon: 'mdi mdi-laptop-windows',
+            icon: 'mdi mdi-laptop',
             projects: [
                 {
                     title: 'LoRa Chat',
@@ -385,7 +433,7 @@ export const infos = {
                     toolsAndTechnologies: [
                         'C#',
                         'Entity Framework',
-                        'Password Hashing (BCrypt)',
+                        'Password Encryption (AES)',
                         'MySQL',
                         'OpenAI API',
                         'Picovoice',
@@ -461,8 +509,8 @@ export const infos = {
             projects: [
                 {
                     title: 'Portfolio',
-                    description: 'This portfolio website is a showcase of my skills and projects.',
-                    image: '/images/projects/portfolio.png', 
+                    description: 'A modern portfolio website built with React and TypeScript (my first project using React.js), showcasing my professional skills, projects, and certifications. The site features responsive design, smooth animations, and integration with GitHub API to display my work from GitHub (The5TiM). Developed with Vite for optimal performance and Tailwind CSS for streamlined styling.',
+                    image: '/images/projects/portfolio.png',
                     githubLink: 'https://github.com/The5TiM/portfolio',
                     toolsAndTechnologies: [
                         'Vite',
@@ -471,6 +519,8 @@ export const infos = {
                         'Tailwind CSS',
                         'Reactbits',
                         'Github API',
+                        'React Router',
+                        'EmailJS',
                     ]
                 },
                 {

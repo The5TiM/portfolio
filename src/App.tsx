@@ -1,13 +1,14 @@
+import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
-import { themeStyles } from './styles/theme'
-import { useEffect, useState } from 'react'
 import Home from './pages/Home'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
+import Footer from './components/Footer'
+import { themeStyles } from './styles/theme'
 import { infos } from './data/info'
 import { GithubData } from './shared/github'
-import Footer from './components/Footer'
-import Projects from './pages/Projects'
 
 function App() {
   const [githubData, setGithubData] = useState<GithubData | null>(null)
@@ -30,15 +31,15 @@ function App() {
 
   return (
     <main className={`h-full ${themeStyles.main} ${themeStyles.text.primary}`}>
-      <Navbar username={githubData?.login || ''} />
-        <div className="container mx-auto">
-          <Routes>
-            <Route path="/" element={<Home githubData={githubData} loading={loading} />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<div>Contact</div>} />
-          </Routes> 
-        </div>
-      <Footer name={githubData?.name || ''} />
+      <Navbar githubData={githubData} />
+      <div className="container mx-auto">
+        <Routes>
+          <Route path="/" element={<Home githubData={githubData} loading={loading} />} />
+          <Route path="/projects" element={<Projects loading={loading} />} />
+          <Route path="/contact" element={<Contact githubData={githubData} loading={loading} />} />
+        </Routes> 
+      </div>
+      <Footer githubData={githubData} />
     </main>
   )
 }

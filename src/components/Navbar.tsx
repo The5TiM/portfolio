@@ -3,16 +3,17 @@ import { Link, useLocation } from 'react-router-dom';
 import { themeStyles } from "../styles/theme";
 import { sizes } from "../styles/size";
 import SkeletonLoader from './SkeletonLoader';
+import { GithubData } from "../shared/github";
 
 interface NavbarProps {
-  username: string;
+    githubData: GithubData | null;
 }
 
 const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-const Navbar: React.FC<NavbarProps> = ({ username }) => {
+const Navbar: React.FC<NavbarProps> = ({ githubData }) => {
     const location = useLocation();
     
     // Check if the current path is active
@@ -20,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({ username }) => {
         return location.pathname === path;
     }
 
-    if (!username) return <SkeletonLoader type="navbar" />;
+    if (!githubData) return <SkeletonLoader type="navbar" />;
 
     return (
         <>
@@ -30,9 +31,10 @@ const Navbar: React.FC<NavbarProps> = ({ username }) => {
                         to="/" 
                         onClick={scrollToTop}
                         className={`${themeStyles.navbar.logo.base} ${sizes.textSm}`}>
-                            <span className="font-bold">{username}</span>
+                            <span className="font-bold">{githubData.login}</span>
                             <span className="font-extralight"> / portfolio</span>
                     </Link> 
+                    
                     <div className="flex gap-6">
                         <Link 
                             to="/" 

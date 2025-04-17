@@ -19,24 +19,15 @@ interface HomeProps {
   loading: boolean;
 }
 
-class Home extends React.Component<HomeProps> {
-
-  constructor(props: HomeProps) {
-    super(props); 
+const Home: React.FC<HomeProps> = ({ githubData, loading }) => {
+  if (loading) {
+    return <SkeletonLoader type="profile" />;
   }
 
-
-  render() {
-    const { githubData, loading } = this.props;
-
-    if (loading) {
-      return <SkeletonLoader type="profile" />;
-    }
-
-    return (
+  return (
         <>
             <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-                <div className={`${sizes.pageHeight} flex flex-col items-center justify-center relative`}>
+                <div className={`${sizes.pageHeight} flex flex-col items-center justify-center`}>
                     <div className="flex items-center flex-col-reverse md:flex-row w-full max-w-5xl gap-6">
                         <div className="flex flex-col gap-4 p-4 flex-1">
                             <p className={`${sizes.textSm} text-center md:text-start font-bold`}>Hi, I'm</p>
@@ -54,7 +45,7 @@ class Home extends React.Component<HomeProps> {
                                     <i className="fa-solid fa-arrow-right"></i> Projects
                                 </Link>
                                 {githubData?.hireable && 
-                                    <a href={infos.email} className={`flex gap-2 ${themeStyles.button.secondary} ${sizes.textXxs}`}>
+                                    <a href={`mailto:${infos.email}`} className={`flex gap-2 ${themeStyles.button.secondary} ${sizes.textXxs}`}>
                                         <i className="fa-solid fa-envelope"></i> Hire Me
                                     </a>
                                 }
@@ -71,18 +62,16 @@ class Home extends React.Component<HomeProps> {
                 </div>
             </FadeContent>
             <div className={`${sizes.pageHeight} flex items-center justify-center`}>
-                <div className="scale-200">
                     <ScrollFloat
                         animationDuration={1}
                         ease='back.inOut(2)'
                         scrollStart='center bottom+=50%'
                         scrollEnd='bottom bottom-=40%'
                         stagger={0.03}
-                        textClassName="font-bold text-9xl"
+                        textClassName="font-bold !text-[clamp(3.2rem,8vw,6rem)]"
                     >
                         About Me
                     </ScrollFloat>
-                </div>
             </div>
             <div className={`${sizes.pageHeight} flex items-center justify-center`}>
                 <div className="w-xs md:w-xl lg:w-2xl">
@@ -90,7 +79,7 @@ class Home extends React.Component<HomeProps> {
                         baseOpacity={0} 
                         enableBlur={true} 
                         blurStrength={15} 
-                        textClassName="text-justify"
+                        textClassName="text-center"
                     >
                         {`${githubData?.bio || ''} 
                             ${githubData?.location ? `Currently living in ${githubData?.location}.` : ''} 
@@ -100,18 +89,16 @@ class Home extends React.Component<HomeProps> {
                 </div>
             </div>
             <div className={`${sizes.pageHeight} flex items-center justify-center`}>
-                <div className="scale-200">
-                    <ScrollFloat
-                        animationDuration={1}
-                        ease='back.inOut(2)'
-                        scrollStart='center bottom+=50%'
-                        scrollEnd='bottom bottom-=40%'
-                        stagger={0.03}
-                        textClassName="font-bold text-9xl"
-                    >
-                        Skills
-                    </ScrollFloat>
-                </div>
+                <ScrollFloat
+                    animationDuration={1}
+                    ease='back.inOut(2)'
+                    scrollStart='center bottom+=50%'
+                    scrollEnd='bottom bottom-=40%'
+                    stagger={0.03}
+                    textClassName="font-bold !text-[clamp(3.2rem,8vw,6rem)]"
+                >
+                    Skills
+                </ScrollFloat>
             </div>
             <div className={`${sizes.pageHeight} flex items-center justify-center`}>
                 <ScrollVelocity
@@ -123,26 +110,22 @@ class Home extends React.Component<HomeProps> {
                 <SkillsCard skills={infos.skills} />
             </div>
             <div className={`${sizes.pageHeight} flex items-center justify-center`}>
-                <div className="scale-200">
-                    <ScrollFloat
-                        animationDuration={1}
-                        ease='back.inOut(2)'
-                        scrollStart='center bottom+=50%'
-                        scrollEnd='bottom bottom-=40%'
-                        stagger={0.03}
-                        textClassName="font-bold text-9xl"
-                    >
-                        Certificates
-                    </ScrollFloat>
-                </div>
+                <ScrollFloat
+                    animationDuration={1}
+                    ease='back.inOut(2)'
+                    scrollStart='center bottom+=50%'
+                    scrollEnd='bottom bottom-=40%'
+                    stagger={0.03}
+                    textClassName="font-bold !text-[clamp(3.2rem,8vw,6rem)]"
+                >
+                    Certificates
+                </ScrollFloat>
             </div>
             <div className={`${sizes.pageHeight} flex items-center justify-center`}>
                 <CertificateCard certificates={infos.certifications || []} />
             </div>
         </>
     );
-
-  }
-}
+};
 
 export default Home;
