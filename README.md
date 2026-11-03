@@ -70,7 +70,8 @@ This is my personal portfolio website showcasing my skills, projects, and experi
 <div align="center" style="margin: 2rem 0;">
   <em>⚠️ The current implementation is for demonstration purposes only.</em>
 </div>
-
+<br>
+<br>
 The following environment variables are required in your `.env` file:
 
 ```
@@ -141,16 +142,6 @@ yarn build
 ## License
 
 Feel free to explore this codebase for educational purposes and inspiration for your own projects. You can learn from the implementation of various features and component structure.
-
-However, **please do not copy this work and present it as your own**. I do not appreciate plagiarism of my personal work. If you find this portfolio being used without proper attribution, please contact me via email.
-
-## Contact
-
-If you have any questions or would like to get in touch, please reach out via email:
-
-<p align="center">
-  <a href="mailto:juwan.jouma@gmail.com"><img src="https://img.shields.io/badge/Email-juwan.jouma@gmail.com-green?style=for-the-badge&logo=mail.ru&logoColor=white" alt="Email" /></a>
-</p>
 
 ## Author
 
